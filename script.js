@@ -12,6 +12,8 @@ const resetButton = document.getElementById("reset-btn");
 
 let image = new Image();
 
+let sepia = false;
+
 fileInput.addEventListener("change", function (e) {
   const file = e.target.files[0];
   if (!file) return;
@@ -33,27 +35,37 @@ function applyFilters() {
   const contrastValue = contrastInput.value;
   const saturationValue = saturationInput.value;
   const blurValue = blurInput.value;
+  const sepiaValue = sepia ? 100 : 0;
 
-  ctx.filter = `brightness(${brightnessValue}%)contrast(${contrastValue}%)saturate(${saturationValue}%)blur(${blurValue}px)`;
+  ctx.filter = `brightness(${brightnessValue}%)contrast(${contrastValue}%)saturate(${saturationValue}%)blur(${blurValue}px)sepia(${sepiaValue}%)`;
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 }
 
 function applyGrayScale() {
-  const brightnessValue = brightnessInput.value;
-  const contrastValue = contrastInput.value;
-  const saturationValue = 0;
-  const blurValue = blurInput.value;
-
   saturationInput.value = 0;
-
-  ctx.filter = `brightness(${brightnessValue}%)contrast(${contrastValue}%)saturate(${saturationValue}%)blur(${blurValue}px)`;
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+  applyFilters();
 }
 
-function applySepiaEffect(){
-    
+function applySepiaEffect() {
+  sepia = !sepia;
+
+  if (sepia) {
+    sepiaButton.style.backgroundColor = "#F7E396";
+  } else {
+    sepiaButton.style.backgroundColor = "#607b8f";
+  }
+  applyFilters();
+}
+
+function resetCanvas() {
+  brightnessInput.value = 100;
+  contrastInput.value = 100;
+  saturationInput.value = 100;
+  blurInput.value = 0;
+  sepia = false;
+  sepiaButton.style.backgroundColor = "#607b8f";
+  applyFilters();
 }
 
 brightnessInput.addEventListener("input", applyFilters);
@@ -61,4 +73,5 @@ contrastInput.addEventListener("input", applyFilters);
 saturationInput.addEventListener("input", applyFilters);
 blurInput.addEventListener("input", applyFilters);
 grayScaleButton.addEventListener("click", applyGrayScale);
-sepiaButton.addEventListener("click" , applySepiaEffect)
+sepiaButton.addEventListener("click", applySepiaEffect);
+resetButton.addEventListener("click", resetCanvas);
