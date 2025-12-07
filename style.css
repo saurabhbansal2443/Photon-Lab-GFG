@@ -1,0 +1,36 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  width: 100vw;
+  background-color: rgb(44, 43, 43);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  height: 80%;
+  width: 80%;
+  border: 1px solid red;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.controls {
+  height: 100%;
+  width: 40%;
+  border: 1px solid red;
+}
+.canvasContainer {
+  height: 100%;
+  width: 60%;
+  border: 1px solid green;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

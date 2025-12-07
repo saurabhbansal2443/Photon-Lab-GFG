@@ -1,13 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    
-</body>
-<script src="./script.js"></script>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Photon Lab</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="controls">
+        <p>Photon Lab</p>
+        <div class="inputContainer">
+          <input type="file" />
+        </div>
+        <div class="feature-container">
+          <label for="brightness">Brightness</label>
+          <input
+            type="range"
+            name=""
+            id="brightness-input"
+            min="0"
+            max="200"
+            value="100"
+          />
+        </div>
+        <div class="feature-container">
+          <label for="contrast">Contrast</label>
+          <input
+            type="range"
+            name=""
+            id="contrast-input"
+            min="0"
+            max="200"
+            value="100"
+          />
+        </div>
+        <div class="feature-container">
+          <label for="saturation">Saturation</label>
+          <input
+            type="range"
+            name=""
+            id="saturation-input"
+            min="0"
+            max="200"
+            value="100"
+          />
+        </div>
+        <div class="feature-container">
+          <label for="blur">Blur</label>
+          <input
+            type="range"
+            name=""
+            id="blur-input"
+            min="0"
+            max="200"
+            value="0"
+          />
+        </div>
+        <div class="buttonsContainer">
+          <button class="btn">GrayScale</button>
+          <button class="btn">Sepia</button>
+          <button class="btn">Reset</button>
+        </div>
+        <div class="downalodImageContainer">
+          <button class="downloadImgBtn">Download Image</button>
+        </div>
+      </div>
+      <div class="canvasContainer">
+        <canvas id="canvas"></canvas>
+      </div>
+    </div>
+  </body>
+  <script src="./script.js"></script>
 </html>
