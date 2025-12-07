@@ -9,6 +9,7 @@ const blurInput = document.getElementById("blur-input");
 const grayScaleButton = document.getElementById("grayscale-btn");
 const sepiaButton = document.getElementById("sepia-btn");
 const resetButton = document.getElementById("reset-btn");
+const downloadButton = document.querySelector(".downloadImgBtn");
 
 let image = new Image();
 
@@ -68,6 +69,17 @@ function resetCanvas() {
   applyFilters();
 }
 
+function downloadCanvasImage() {
+  const imageData = canvas.toDataURL("image/png");
+  const link = document.createElement("a");
+  link.download = "photon-lab-editted.png";
+  console.log("ImageData", imageData);
+  link.href = imageData;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+
 brightnessInput.addEventListener("input", applyFilters);
 contrastInput.addEventListener("input", applyFilters);
 saturationInput.addEventListener("input", applyFilters);
@@ -75,3 +87,4 @@ blurInput.addEventListener("input", applyFilters);
 grayScaleButton.addEventListener("click", applyGrayScale);
 sepiaButton.addEventListener("click", applySepiaEffect);
 resetButton.addEventListener("click", resetCanvas);
+downloadButton.addEventListener("click", downloadCanvasImage);

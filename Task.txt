@@ -1,3 +1,7 @@
 1) HTML and CSS 
 2) Upload image form the input and show it on the canvas
 3) Create the functionality for brightness saturation blur and contrast 
+4) Create grayscale button and implement functionality 
+5) Create speian button functionality 
+6) do reset button functioanlity ; 
+7) Create download functionality ; 
