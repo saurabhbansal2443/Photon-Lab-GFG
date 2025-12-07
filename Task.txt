@@ -1,0 +1,2 @@
+1) HTML and CSS 
+2) Upload image form the input and show it on the canvas
