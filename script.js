@@ -6,6 +6,9 @@ const brightnessInput = document.getElementById("brightness-input");
 const contrastInput = document.getElementById("contrast-input");
 const saturationInput = document.getElementById("saturation-input");
 const blurInput = document.getElementById("blur-input");
+const grayScaleButton = document.getElementById("grayscale-btn");
+const sepiaButton = document.getElementById("sepia-btn");
+const resetButton = document.getElementById("reset-btn");
 
 let image = new Image();
 
@@ -36,7 +39,26 @@ function applyFilters() {
   ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
 }
 
+function applyGrayScale() {
+  const brightnessValue = brightnessInput.value;
+  const contrastValue = contrastInput.value;
+  const saturationValue = 0;
+  const blurValue = blurInput.value;
+
+  saturationInput.value = 0;
+
+  ctx.filter = `brightness(${brightnessValue}%)contrast(${contrastValue}%)saturate(${saturationValue}%)blur(${blurValue}px)`;
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.drawImage(image, 0, 0, canvas.width, canvas.height);
+}
+
+function applySepiaEffect(){
+    
+}
+
 brightnessInput.addEventListener("input", applyFilters);
 contrastInput.addEventListener("input", applyFilters);
 saturationInput.addEventListener("input", applyFilters);
 blurInput.addEventListener("input", applyFilters);
+grayScaleButton.addEventListener("click", applyGrayScale);
+sepiaButton.addEventListener("click" , applySepiaEffect)
